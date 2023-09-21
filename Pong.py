@@ -5,8 +5,8 @@ W = 1000
 H = 500
 sc = pg.display.set_mode((W, H), pg.SCALED)
 pg.display.set_caption("Pong")
-f1 = pg.font.Font("pix.ttf", 24)
-f2 = pg.font.Font("pix.ttf", 24)
+f1 = pg.font.Font("Data/pix.ttf", 24)
+f2 = pg.font.Font("Data/pix.ttf", 24)
 
 GREEN = (0, 255, 0)
 WHITE = (255, 255, 255)
@@ -63,24 +63,24 @@ while True:
     yb += velY
 
     if xb < 0 or xb > W - 50:
-        mg.load("loose.mp3")
+        mg.load("Data/loose.mp3")
         mg.play(0)
         exit()
     elif yb < 0 or yb > H - 50:
         velY = -velY
-        mg.load("sound.mp3")
+        mg.load("Data/sound.mp3")
         mg.play(0)
 
     elif xb + 50 > x1 and yb > y1 and yb + 50 < y1 + 200:
         velX = -velX
         score1 += 1
-        mg.load("sound.mp3")
+        mg.load("Data/sound.mp3")
         mg.play(0)
 
     elif xb < x2 + 30 and yb > y2 and yb + 50 < y2 + 200:
         velX = -velX
         score2 += 1
-        mg.load("sound.mp3")
+        mg.load("Data/sound.mp3")
         mg.play(0)
 
 
