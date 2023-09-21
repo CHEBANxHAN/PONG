@@ -1,4 +1,5 @@
 import pygame as pg
+from pygame.mixer import music as mg
 pg.init()
 W = 1000
 H = 500
@@ -62,17 +63,25 @@ while True:
     yb += velY
 
     if xb < 0 or xb > W - 50:
+        mg.load("loose.mp3")
+        mg.play(0)
         exit()
     elif yb < 0 or yb > H - 50:
         velY = -velY
+        mg.load("sound.mp3")
+        mg.play(0)
 
     elif xb + 50 > x1 and yb > y1 and yb + 50 < y1 + 200:
         velX = -velX
         score1 += 1
+        mg.load("sound.mp3")
+        mg.play(0)
 
     elif xb < x2 + 30 and yb > y2 and yb + 50 < y2 + 200:
         velX = -velX
         score2 += 1
+        mg.load("sound.mp3")
+        mg.play(0)
 
 
     sc_text1 = f1.render(f"{score2}", 1, WHITE, BLACK)
@@ -89,3 +98,4 @@ while True:
     pg.display.update()
 
     clock.tick(FPS)
+
